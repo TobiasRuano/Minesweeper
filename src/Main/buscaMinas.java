@@ -24,10 +24,7 @@ public class buscaMinas {
 	public static void main(String[] args) {
 
 		try {
-//			File file = new File("T:\\archivo.txt"); // path para windows
-//			File file = new File("/Volumes/NO NAME/eclipse/archivo.txt"); // Path para mac
-//			File file = new File("/Volumes/NO NAME/eclipse/Copia de archivo.txt");
-			File file = new File("/Volumes/NO NAME/eclipse/Copia de archivo 2.txt");
+			File file = new File("Path for the location of your test goes file here!");
 			FileReader fr = new FileReader(file);
 			BufferedReader  br = new BufferedReader(fr);
 			
