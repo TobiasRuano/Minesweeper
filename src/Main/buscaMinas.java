@@ -3,7 +3,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import TDA.MatrizTDA;
 
 public class buscaMinas {
 
