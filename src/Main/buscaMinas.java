@@ -42,17 +42,13 @@ public class buscaMinas {
 			System.out.print("; Minas: " + bombas + "\n\n");
 
 			celda[][] matrizInicial = new celda[filas][columnas];
-			for(i = 0; i < filas ; i++) {
-				for(j = 0; j < columnas; j++) {
-					matrizInicial[i][j] = new celda();
-				}
-			}
 			
 			char caracter;
 			for (i = 0; i < filas; i++) {
 				for (j = 0; j < columnas; j++) {
 					caracter = (char) br.read();
 					if (caracter != '\n' && caracter != ' ') {
+						matrizInicial[i][j] = new celda();
 						matrizInicial[i][j].valor = caracter;
 						matrizInicial[i][j].visitado = false;
 						System.out.print(matrizInicial[i][j].valor);
@@ -71,13 +67,9 @@ public class buscaMinas {
 			for(i = 0; i < filas; i++) {
 				for(j = 0; j < columnas; j++) {
 					celda[][] copiaMatriz = new celda[filas][columnas];
-					for(a = 0; a < filas ; a++) {
-						for(b = 0; b < columnas; b++) {
-							copiaMatriz[a][b] = new celda();
-						}
-					}
 					for(a = 0; a < matrizInicial.length; a++) {
 						  for(b = 0; b < matrizInicial[a].length; b++) {
+							  copiaMatriz[a][b] = new celda();
 							  copiaMatriz[a][b].valor = matrizInicial[a][b].valor;
 							  copiaMatriz[a][b].visitado = matrizInicial[a][b].visitado;
 						  }
