@@ -1,7 +1,6 @@
 package Main;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 public class buscaMinas {
@@ -24,11 +23,11 @@ public class buscaMinas {
 	public static void main(String[] args) {
 
 		try {
-			File file = new File("Path for the location of your test goes file here!");
+			File file = new File(" SET THE FILE PATH HERE!! ");
 			FileReader fr = new FileReader(file);
 			BufferedReader  br = new BufferedReader(fr);
 			
-			int i, j, a, b;
+			int i=0, j=0, a=0, b=0;
 
 			String line;
 			line = br.readLine();
@@ -42,12 +41,11 @@ public class buscaMinas {
 			System.out.print("; Minas: " + bombas + "\n\n");
 
 			celda[][] matrizInicial = new celda[filas][columnas];
-			
 			char caracter;
 			for (i = 0; i < filas; i++) {
 				for (j = 0; j < columnas; j++) {
 					caracter = (char) br.read();
-					if (caracter != '\n' && caracter != ' ') {
+					if (!Integer.toString(caracter).equals("13") && !Integer.toString(caracter).equals("10") && caracter !=' ') {
 						matrizInicial[i][j] = new celda();
 						matrizInicial[i][j].valor = caracter;
 						matrizInicial[i][j].visitado = false;
@@ -58,8 +56,9 @@ public class buscaMinas {
 				}
 				System.out.print("\n");
 			}
+				
 			System.out.print("\n");
-			fr.close(); // termino la lectura del archivo, por ende lo cierro
+			fr.close();
 
 			ArrayList<par> resultado;
 			resultado = new ArrayList<par>();
@@ -106,7 +105,7 @@ public class buscaMinas {
 			matriz = revelar(matriz, posF, posC);
 
 			pendientes = contarPendientes(matriz);
-			if(cantBombas == pendientes) { // Aca llegue a una hoja, por ende chequeo si los clicks actuales son o no la mejor solucion
+			if(cantBombas == pendientes) {
 				if(listaClicks.size() < listaSolucion.size() || listaSolucion.size() == 0) {
 					int a;
 					for(a = 0; a < listaClicks.size(); a++) {
